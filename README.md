@@ -1,5 +1,5 @@
 # preprocessing_feature_engineering
-
+**Hasil dan Penjelasan Tahap Preprocessing**
 ![Step 1](https://github.com/Ramadhinianjani/preprocessing_feature_engineering/blob/main/Screenshot/T1.png)
 
 Penjelasan:
@@ -35,3 +35,37 @@ Kode pada gambar menggunakan matplotlib.pyplot untuk menampilkan boxplot dari ko
 
 Penjelasan:
 Kode tersebut digunakan untuk menampilkan heatmap korelasi pada dataset. Baris plt.figure(figsize=(8,5)) mengatur ukuran gambar, sementara sns.heatmap(df.corr(), annot=True, cmap="coolwarm") menghasilkan heatmap berdasarkan nilai korelasi antar variabel numerik dalam DataFrame. Parameter annot=True membuat setiap sel menampilkan angka korelasinya, dan cmap="coolwarm" memberi warna gradasi dari merah (korelasi tinggi) hingga biru (korelasi negatif). Output grafik menunjukkan hubungan antar variabel, misalnya Age memiliki korelasi negatif kecil dengan Satisfaction_Low, dan variabel Satisfaction_Low serta Satisfaction_Medium memiliki korelasi negatif kuat sekitar -0.46. Heatmap ini memudahkan untuk melihat pola hubungan antar fitur secara visual dan cepat.
+
+![Step 8](https://github.com/Ramadhinianjani/preprocessing_feature_engineering/blob/main/Screenshot/T8.png)
+
+Penjelasan:
+Kode tersebut digunakan untuk menampilkan histogram beberapa fitur numerik sekaligus, yaitu Age, Income, dan Balance. Perintah df[["Age", "Income", 
+"Balance"]].hist(figsize=(10, 5)) membuat tiga histogram dalam satu tampilan dengan ukuran gambar 10×5. Selanjutnya, plt.suptitle("Histogram Fitur Numerik", fontsize=14) menambahkan judul utama untuk seluruh subplot, dan plt.show() menampilkan grafiknya. Output yang dihasilkan berupa tiga histogram terpisah yang menunjukkan distribusi masingmasing fitur numerik. Ketiganya menampilkan pola penyebaran data yang tampak sudah melalui proses standardisasi, karena nilai berada di sekitar rentang –2 hingga 2. Histogram ini membantu memahami bentuk distribusi setiap variabel, apakah datanya simetris, miring, atau tersebar secara merata.
+
+![Step 9](https://github.com/Ramadhinianjani/preprocessing_feature_engineering/blob/main/Screenshot/T9.png)
+![Lanjutan Step 9](https://github.com/Ramadhinianjani/preprocessing_feature_engineering/blob/main/Screenshot/OU9.png)
+
+Penjelasan:
+Kode tersebut digunakan untuk menampilkan boxplot dari tiga fitur numerik dalam dataframe, yaitu Income, Balance, dan Age, setelah proses pembersihan outlier menggunakan metode IQR. Baris plt.boxplot([df["Income"], df["Balance"], df["Age"]], labels=["Income", "Balance", "Age"]) membuat tiga boxplot berdampingan, sementara plt.figure(figsize=(8,5)) mengatur ukuran gambar dan plt.title() memberi judul grafik. Output yang dihasilkan berupa visualisasi persebaran data tiap fitur, menunjukkan nilai median, rentang kuartil (IQR), dan titik ekstrim. Grafik ini membantu melihat apakah outlier sudah berkurang dan bagaimana distribusi masing-masing variabel setelah preprocessing dilakukan.
+
+![Step 10](https://github.com/Ramadhinianjani/preprocessing_feature_engineering/blob/main/Screenshot/T10.png)
+![Lanjutan Step 10](https://github.com/Ramadhinianjani/preprocessing_feature_engineering/blob/main/Screenshot/OU10.png)
+![Lanjutan Step 10](https://github.com/Ramadhinianjani/preprocessing_feature_engineering/blob/main/Screenshot/OUT10.png)
+
+Penjelasan:
+Kode tersebut menggunakan sns.pairplot() untuk menampilkan hubungan antar tiga fitur numerik—Age, Income, dan Balance—dalam bentuk scatterplot dan histogram. Pairplot secara otomatis membuat scatterplot untuk setiap pasangan variabel, serta histogram pada diagonal untuk menunjukkan distribusi masing-masing fitur. Output yang muncul menunjukkan bahwa ketiga variabel memiliki sebaran data yang cukup acak tanpa pola hubungan linear yang kuat, sehingga tidak tampak korelasi yang signifikan antar fitur. Histogram pada diagonal menggambarkan persebaran masing-masing variabel setelah proses standardisasi, sehingga bentuk distribusi terlihat lebih teratur dan berada dalam skala yang sama. Visualisasi ini membantu memahami struktur data serta potensi hubungan antar variabel sebelum dilakukan analisis lebih lanjut.
+
+![Step 11](https://github.com/Ramadhinianjani/preprocessing_feature_engineering/blob/main/Screenshot/T11.png)
+![Lanjutan Step 11](https://github.com/Ramadhinianjani/preprocessing_feature_engineering/blob/main/Screenshot/OU11.png)
+
+Penjelasan:
+Kode tersebut membuat visualisasi scatter plot menggunakan Matplotlib untuk melihat hubungan antara variabel Income dan Balance dalam sebuah dataframe. Baris plt.figure(figsize=(8,5)) menentukan ukuran gambar, lalu plt.scatter(df["Income"], df["Balance"]) menampilkan titik-titik yang mewakili pasangan nilai Income dan Balance. Selanjutnya, plt.xlabel("Income") dan plt.ylabel("Balance") memberi label pada sumbu X dan Y, sementara plt.title("Scatter Plot Income vs Balance") menambahkan judul pada grafik. Terakhir, plt.show() digunakan untuk menampilkan plot tersebut. 
+Output berupa grafik scatter plot yang menunjukkan sebaran titik data antara income dan balance. Dari visualisasi terlihat bahwa titik-titik tersebar acak tanpa pola tertentu, menandakan bahwa tidak ada hubungan atau korelasi yang kuat antara pendapatan (Income) dan saldo (Balance) pada dataset tersebut.
+
+![Step 12](https://github.com/Ramadhinianjani/preprocessing_feature_engineering/blob/main/Screenshot/T12.png)
+![Lanjutan Step 12](https://github.com/Ramadhinianjani/preprocessing_feature_engineering/blob/main/Screenshot/OU12.png)
+![Lanjutan Step 12](https://github.com/Ramadhinianjani/preprocessing_feature_engineering/blob/main/Screenshot/OUT12.png)
+
+Penjelasan:
+Kode tersebut menggunakan sns.countplot() untuk menampilkan distribusi dua variabel kategorikal biner, yaitu Satisfaction_Low dan Satisfaction_Medium. Masing-masing plot menghitung jumlah data dengan nilai True dan False untuk setiap kategori, lalu menampilkannya dalam bentuk grafik batang. Fungsi plt.title() memberikan judul pada setiap grafik, dan plt.show() digunakan untuk menampilkannya. 
+Output pertama menunjukkan distribusi Satisfaction_Low, di mana jumlah nilai False jauh lebih banyak dibanding True, menandakan bahwa sebagian besar pelanggan tidak termasuk kategori kepuasan rendah. Output kedua menampilkan distribusi Satisfaction_Medium, dengan pola serupa: nilai False lebih dominan dibanding True, sehingga mayoritas pelanggan tidak berada pada kategori kepuasan sedang. Grafik-grafik ini membantu memahami persebaran tingkat kepuasan dalam dataset secara visual.
